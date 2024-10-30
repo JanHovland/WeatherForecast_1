@@ -11,6 +11,7 @@ struct AverageView : View {
     
     @Environment(\.dismiss) var dismiss
     @Environment(CurrentWeather.self) private var currentWeather
+    @Environment(WeatherInfo.self) private var weatherInfo
     
     @State private var selection1: Bool = true
     @State private var selection2: Bool = false
@@ -24,6 +25,7 @@ struct AverageView : View {
 
     var body: some View {
         VStack {
+            Text(weatherInfo.placeName + " " + weatherInfo.countryName)
             HStack(spacing: UIDevice.isIpad ? 20 : 10) {
                 Spacer()
                 Image(systemName: "chart.line.uptrend.xyaxis")
@@ -33,6 +35,7 @@ struct AverageView : View {
             }
             .opacity(0.50)
             .padding(20)
+            
             .overlay (
                 HStack {
                     Spacer()
