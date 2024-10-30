@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -467,6 +467,10 @@
 		DBFEC13F2A7402E6003FC4FB /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		DBFEFF8A2BAF3C5C0003C105 /* FindDataLast30Days.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDataLast30Days.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DB38AA5F2CD28A3E00784CFE /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DBB4CCC3288869E900B5C5C8 /* Frameworks */ = {
@@ -991,14 +995,15 @@
 		DBB4CCBD288869E800B5C5C8 = {
 			isa = PBXGroup;
 			children = (
-				DB2F3AC829ED56B500D332E1 /* WeatherForecast.drawio */,
-				DB28AD65298D63BD001C9F0B /* WeatherInformation */,
-				DB0230C128E4C7B000DCE15C /* Localizable.strings */,
-				DB7831EF289917B9003DD4B7 /* weather.png */,
-				DBB4CCC9288869E900B5C5C8 /* WeatherForecastApp.swift */,
-				DBB4CCC8288869E900B5C5C8 /* WeatherForecast */,
 				DBE3CD47289925660099D056 /* InfoPlist.strings */,
+				DB0230C128E4C7B000DCE15C /* Localizable.strings */,
 				DBB4CCC7288869E900B5C5C8 /* Products */,
+				DB38AA5F2CD28A3E00784CFE /* Script */,
+				DB7831EF289917B9003DD4B7 /* weather.png */,
+				DBB4CCC8288869E900B5C5C8 /* WeatherForecast */,
+				DB2F3AC829ED56B500D332E1 /* WeatherForecast.drawio */,
+				DBB4CCC9288869E900B5C5C8 /* WeatherForecastApp.swift */,
+				DB28AD65298D63BD001C9F0B /* WeatherInformation */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1104,6 +1109,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DB38AA5F2CD28A3E00784CFE /* Script */,
 			);
 			name = WeatherForecast;
 			productName = WeatherForecast;
