@@ -20,7 +20,7 @@ struct AverageFirstView: View {
     @State private var normalLowTemp: Double = 0.00
     @State private var normalMeanTemp: Double = 0.00
     @State private var normalHighTemp: Double = 0.00
-   
+    
     @State private var sumMinTemp: Double = 0.00
     @State private var sumMeanTemp: Double = 0.00
     @State private var sumMaxTemp: Double = 0.00
@@ -40,7 +40,7 @@ struct AverageFirstView: View {
     @State private var toDayAverageTemperatureArray: [AverageTemperature] = []
     @State private var toDayAverageMinTemperatureArray: [AverageHourMinTemperature] = []
     @State private var toDayAverageMaxTemperatureArray: [AverageHourMaxTemperature] = []
-
+    
     @State private var todayFrom: Date = Date()
     @State private var todayTo: Date = Date()
     
@@ -75,9 +75,9 @@ struct AverageFirstView: View {
     
     
     @State private var averageNormalPrecipitationMonth: [AverageNormalPrecipitationMonth] = []
-
+    
     @State private var divisor: Double = 10.00
-
+    
     @State private var maxx: Double = 0.00
     @State private var minx: Double = 0.00
     
@@ -103,7 +103,7 @@ struct AverageFirstView: View {
             }
             .padding(.bottom, 10)
             .font(.system(size: UIDevice.isIpad ? 30 : 20, weight: .light))
-             HStack {
+            HStack {
                 HStack {
                     Text(String(localized: "H: Today"))
                     Spacer()
@@ -221,10 +221,10 @@ struct AverageFirstView: View {
                 ///
                 averageDailyData30DaysRecord.date.removeAll()
                 averageDailyData30DaysRecord.precipitation.removeAll()
-
+                
                 var sum: Double = 0.00
                 var tot: Double = 0.00
-
+                
                 for i in 0..<average30DaysDataRecord.time.count {
                     let date = average30DaysDataRecord.time[i]
                     sum = average30DaysDataRecord.precipitationSum[i] ?? 0.00
@@ -397,7 +397,7 @@ struct AverageFirstView: View {
                     if $0.date >= todayFrom,
                        $0.date < todayTo {
                         tempTodayArray.append($0.temperature.value)
-                     }
+                    }
                 }
                 ///
                 /// Oppretter TemperaturMinMax med min, dagens og max temperatur
@@ -417,9 +417,6 @@ struct AverageFirstView: View {
                     ///
                     /// Finner minste verdien av min normal temperatur
                     ///
-//                    if minx < minAverageHourArray[i] {
-//                        minx = minAverageHourArray[i]
-//                    }
                     if i == 0 {
                         minx = minAverageHourArray[i]
                     } else {
@@ -463,8 +460,8 @@ struct AverageFirstView: View {
                 
                 (errorMessage, averageDailyYearDataRecord) =
                 await GetAverageDailyWeatherYears(startDate: startDate,
-                                                 lat: weatherInfo.latitude ?? 0.00,
-                                                 lon: weatherInfo.longitude ?? 0.00)
+                                                  lat: weatherInfo.latitude ?? 0.00,
+                                                  lon: weatherInfo.longitude ?? 0.00)
                 
                 var arr: [Double] = []
                 var doublePrecipitationArray: [[Double]] = []
@@ -516,7 +513,7 @@ struct AverageFirstView: View {
                 array1.removeAll()
                 var array2: [Int] = []
                 array2.removeAll()
-
+                
                 for index in 0...29 {
                     array1.append(FindAverageDoubleArray(index: index,
                                                          divisor: weatherInfo.averageDivisor,
@@ -683,107 +680,105 @@ struct AverageFirstView: View {
             if use30Years == true {
                 divisor = 30.00
             }
+            
+            weatherInfo.normalJanuaryMin = ToInteger(averageJanuaryData.minTemp, averageJanuaryData.counterMin)
+            weatherInfo.normalJanuaryMax = ToInteger(averageJanuaryData.maxTemp, averageJanuaryData.counterMax)
+            weatherInfo.normalJanuaryPrecipitation = ToInteger(averageJanuaryData.precipitation, divisor)
+            
+            weatherInfo.normalFebruaryMin = ToInteger(averageFebruaryData.minTemp, averageFebruaryData.counterMin)
+            weatherInfo.normalFebruaryMax = ToInteger(averageFebruaryData.maxTemp, averageFebruaryData.counterMax)
+            weatherInfo.normalFebruaryPrecipitation = ToInteger(averageFebruaryData.precipitation, divisor)
+            
+            weatherInfo.normalMarsMin = ToInteger(averageMarsData.minTemp, averageMarsData.counterMin)
+            weatherInfo.normalMarsMax = ToInteger(averageMarsData.maxTemp, averageMarsData.counterMax)
+            weatherInfo.normalMarsPrecipitation = ToInteger(averageMarsData.precipitation, divisor)
+            
+            weatherInfo.normalAprilMin = ToInteger(averageAprilData.minTemp, averageAprilData.counterMin)
+            weatherInfo.normalAprilMax = ToInteger(averageAprilData.maxTemp, averageAprilData.counterMax)
+            weatherInfo.normalAprilPrecipitation = ToInteger(averageAprilData.precipitation, divisor)
+            
+            weatherInfo.normalMayMin = ToInteger(averageMayData.minTemp, averageMayData.counterMin)
+            weatherInfo.normalMayMax = ToInteger(averageMayData.maxTemp, averageMayData.counterMax)
+            weatherInfo.normalMayPrecipitation = ToInteger(averageMayData.precipitation, divisor)
+            
+            weatherInfo.normalJuneMin = ToInteger(averageJuneData.minTemp, averageJuneData.counterMin)
+            weatherInfo.normalJuneMax = ToInteger(averageJuneData.maxTemp, averageJuneData.counterMax)
+            weatherInfo.normalJunePrecipitation = ToInteger(averageJuneData.precipitation,divisor)
+            
+            weatherInfo.normalJulyMin = ToInteger(averageJulyData.minTemp, averageJulyData.counterMin)
+            weatherInfo.normalJulyMax = ToInteger(averageJulyData.maxTemp, averageJulyData.counterMax)
+            weatherInfo.normalJulyPrecipitation = ToInteger(averageJulyData.precipitation, divisor)
+            
+            weatherInfo.normalAugustMin = ToInteger(averageAugustData.minTemp, averageAugustData.counterMin)
+            weatherInfo.normalAugustMax = ToInteger(averageAugustData.maxTemp, averageAugustData.counterMax)
+            weatherInfo.normalAugustPrecipitation = ToInteger(averageAugustData.precipitation, divisor)
+            
+            weatherInfo.normalSeptemberMin = ToInteger(averageSeptemberData.minTemp, averageSeptemberData.counterMin)
+            weatherInfo.normalSeptemberMax = ToInteger(averageSeptemberData.maxTemp, averageSeptemberData.counterMax)
+            weatherInfo.normalSeptemberPrecipitation = ToInteger(averageSeptemberData.precipitation, divisor)
+            
+            weatherInfo.normalOctoberMin = ToInteger(averageOctoberData.minTemp, averageOctoberData.counterMin)
+            weatherInfo.normalOctoberMax = ToInteger(averageOctoberData.maxTemp, averageOctoberData.counterMax)
+            weatherInfo.normalOctoberPrecipitation = ToInteger(averageOctoberData.precipitation, divisor)
+            
+            weatherInfo.normalNovemberMin = ToInteger(averageNovemberData.minTemp, averageNovemberData.counterMin)
+            weatherInfo.normalNovemberMax = ToInteger(averageNovemberData.maxTemp, averageNovemberData.counterMax)
+            weatherInfo.normalNovemberPrecipitation = ToInteger(averageNovemberData.precipitation, divisor)
+            
+            weatherInfo.normalDecemberMin = ToInteger(averageDecemberData.minTemp, averageDecemberData.counterMin)
+            weatherInfo.normalDecemberMax = ToInteger(averageDecemberData.maxTemp, averageDecemberData.counterMax)
+            weatherInfo.normalDecemberPrecipitation = ToInteger(averageDecemberData.precipitation, divisor)
+            
             ///
-            /// Fortsetter kun dersom averageJanuaryData.minTemp != 0.00
+            /// Oppdaterer array3 fra weatherInfo.normal-------rPrecipitation
             ///
-            if averageJanuaryData.minTemp != 0.00 {
-                weatherInfo.normalJanuaryMin = Int(round(averageJanuaryData.minTemp / averageJanuaryData.counterMin))
-                weatherInfo.normalJanuaryMax = Int(round(averageJanuaryData.maxTemp / averageJanuaryData.counterMax))
-                weatherInfo.normalJanuaryPrecipitation = Int(round(averageJanuaryData.precipitation / divisor))
-                
-                weatherInfo.normalFebruaryMin = Int(round(averageFebruaryData.minTemp /  averageFebruaryData.counterMin))
-                weatherInfo.normalFebruaryMax = Int(round(averageFebruaryData.maxTemp / averageFebruaryData.counterMax))
-                weatherInfo.normalFebruaryPrecipitation = Int(round(averageFebruaryData.precipitation / divisor))
-                
-                weatherInfo.normalMarsMin = Int(round(averageMarsData.minTemp / averageMarsData.counterMin))
-                weatherInfo.normalMarsMax = Int(round(averageMarsData.maxTemp / averageMarsData.counterMax))
-                weatherInfo.normalMarsPrecipitation = Int(round(averageMarsData.precipitation / divisor))
-                
-                weatherInfo.normalAprilMin = Int(round(averageAprilData.minTemp / averageAprilData.counterMin))
-                weatherInfo.normalAprilMax = Int(round(averageAprilData.maxTemp / averageAprilData.counterMax))
-                weatherInfo.normalAprilPrecipitation = Int(round(averageAprilData.precipitation / divisor))
-                
-                weatherInfo.normalMayMin = Int(round(averageMayData.minTemp / averageMayData.counterMin))
-                weatherInfo.normalMayMax = Int(round(averageMayData.maxTemp / averageMayData.counterMax))
-                weatherInfo.normalMayPrecipitation = Int(round(averageMayData.precipitation / divisor))
-                
-                weatherInfo.normalJuneMin = Int(round(averageJuneData.minTemp / averageJuneData.counterMin))
-                weatherInfo.normalJuneMax = Int(round(averageJuneData.maxTemp / averageJuneData.counterMax))
-                weatherInfo.normalJunePrecipitation = Int(round(averageJuneData.precipitation / divisor))
-                
-                weatherInfo.normalJulyMin = Int(round(averageJulyData.minTemp / averageJulyData.counterMin))
-                weatherInfo.normalJulyMax = Int(round(averageJulyData.maxTemp / averageJulyData.counterMax))
-                weatherInfo.normalJulyPrecipitation = Int(round(averageJulyData.precipitation / divisor))
-                
-                weatherInfo.normalAugustMin = Int(round(averageAugustData.minTemp / averageAugustData.counterMin))
-                weatherInfo.normalAugustMax = Int(round(averageAugustData.maxTemp / averageAugustData.counterMax))
-                weatherInfo.normalAugustPrecipitation = Int(round(averageAugustData.precipitation / divisor))
-                
-                weatherInfo.normalSeptemberMin = Int(round(averageSeptemberData.minTemp / averageSeptemberData.counterMin))
-                weatherInfo.normalSeptemberMax = Int(round(averageSeptemberData.maxTemp / averageSeptemberData.counterMax))
-                weatherInfo.normalSeptemberPrecipitation = Int(round(averageSeptemberData.precipitation / divisor))
-                
-                weatherInfo.normalOctoberMin = Int(round(averageOctoberData.minTemp / averageOctoberData.counterMin))
-                weatherInfo.normalOctoberMax = Int(round(averageOctoberData.maxTemp / averageOctoberData.counterMax))
-                weatherInfo.normalOctoberPrecipitation = Int(round(averageOctoberData.precipitation / divisor))
-                
-                weatherInfo.normalNovemberMin = Int(round(averageNovemberData.minTemp / averageNovemberData.counterMin))
-                weatherInfo.normalNovemberMax = Int(round(averageNovemberData.maxTemp / averageNovemberData.counterMax))
-                weatherInfo.normalNovemberPrecipitation = Int(round(averageNovemberData.precipitation / divisor))
-                
-                weatherInfo.normalDecemberMin = Int(round(averageDecemberData.minTemp / averageDecemberData.counterMin))
-                weatherInfo.normalDecemberMax = Int(round(averageDecemberData.maxTemp / averageDecemberData.counterMax))
-                weatherInfo.normalDecemberPrecipitation = Int(round(averageDecemberData.precipitation / divisor))
-                
-                ///
-                /// Oppdaterer array3 fra weatherInfo.normal-------rPrecipitation
-                ///
-                
-                var array3: [Int] = []
-                array3.removeAll()
-                
-                array3.append(weatherInfo.normalJanuaryPrecipitation)
-                array3.append(weatherInfo.normalFebruaryPrecipitation)
-                array3.append(weatherInfo.normalMarsPrecipitation)
-                array3.append(weatherInfo.normalAprilPrecipitation)
-                array3.append(weatherInfo.normalMarsPrecipitation)
-                array3.append(weatherInfo.normalAprilPrecipitation)
-                array3.append(weatherInfo.normalMayPrecipitation)
-                array3.append(weatherInfo.normalJunePrecipitation)
-                array3.append(weatherInfo.normalJulyPrecipitation)
-                array3.append(weatherInfo.normalAugustPrecipitation)
-                array3.append(weatherInfo.normalSeptemberPrecipitation)
-                array3.append(weatherInfo.normalOctoberPrecipitation)
-                array3.append(weatherInfo.normalNovemberPrecipitation)
-                array3.append(weatherInfo.normalDecemberPrecipitation)
-                
-                ///
-                /// Tilpasser averageNormalPrecipitationMonth til Chart
-                ///
-                var a: AverageNormalPrecipitationMonth = AverageNormalPrecipitationMonth(id: UUID(),
-                                                                                         month: "",
-                                                                                         min: 0,
-                                                                                         max: 0,
-                                                                                         value: "")
-                averageNormalPrecipitationMonth.removeAll()
-                
-                var counter: Double = 0.00
-                var value: Double = 0.00
-                
-                for i in 0...11 {
-                    a.month = monthName[i]
-                    a.min = 0
-                    a.max = array3[i]
-                    value = Double(array3[i]) + counter
-                    a.value = "\(value)"
-                    averageNormalPrecipitationMonth.append(a)
-                    counter += 0.01
-                }
-                ///
-                /// Oppdaterer weatherInfo.averagePrecipitationNormalYears
-                ///
-                weatherInfo.averageNormalPrecipitationMonth = averageNormalPrecipitationMonth
+            
+            var array3: [Int] = []
+            array3.removeAll()
+            
+            array3.append(weatherInfo.normalJanuaryPrecipitation)
+            array3.append(weatherInfo.normalFebruaryPrecipitation)
+            array3.append(weatherInfo.normalMarsPrecipitation)
+            array3.append(weatherInfo.normalAprilPrecipitation)
+            array3.append(weatherInfo.normalMarsPrecipitation)
+            array3.append(weatherInfo.normalAprilPrecipitation)
+            array3.append(weatherInfo.normalMayPrecipitation)
+            array3.append(weatherInfo.normalJunePrecipitation)
+            array3.append(weatherInfo.normalJulyPrecipitation)
+            array3.append(weatherInfo.normalAugustPrecipitation)
+            array3.append(weatherInfo.normalSeptemberPrecipitation)
+            array3.append(weatherInfo.normalOctoberPrecipitation)
+            array3.append(weatherInfo.normalNovemberPrecipitation)
+            array3.append(weatherInfo.normalDecemberPrecipitation)
+            
+            ///
+            /// Tilpasser averageNormalPrecipitationMonth til Chart
+            ///
+            var a: AverageNormalPrecipitationMonth = AverageNormalPrecipitationMonth(id: UUID(),
+                                                                                     month: "",
+                                                                                     min: 0,
+                                                                                     max: 0,
+                                                                                     value: "")
+            averageNormalPrecipitationMonth.removeAll()
+            
+            var counter: Double = 0.00
+            var value: Double = 0.00
+            
+            for i in 0...11 {
+                a.month = monthName[i]
+                a.min = 0
+                a.max = array3[i]
+                value = Double(array3[i]) + counter
+                a.value = "\(value)"
+                averageNormalPrecipitationMonth.append(a)
+                counter += 0.01
             }
+            ///
+            /// Oppdaterer weatherInfo.averagePrecipitationNormalYears
+            ///
+            weatherInfo.averageNormalPrecipitationMonth = averageNormalPrecipitationMonth
+            //
+            //        }
         }
         ///
         /// Må legges helt på slutten for å kunne tappe hvor som helst på body

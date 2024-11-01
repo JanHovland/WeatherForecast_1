@@ -11,50 +11,49 @@ struct SettingView: View {
     
     ///
     /// Bruker nå @AppStorage som igjen setter og henter data fra UserSettings
-    /// 
+    ///
     
     @AppStorage("KeyOpenCage") var keyOpenCage = ""
     @AppStorage("KeyOpenWeather") var keyOpenWeather = ""
     @AppStorage("KeyWeatherApi") var keyWeatherApi = ""
-
+    
     @AppStorage("UrlOpenCage") var urlOpenCage = ""
     @AppStorage("UrlOpenWeather") var urlOpenWeather = ""
-
+    
     @AppStorage("UrlMetNo") var urlMetNo = ""
     @AppStorage("UrlWeatherApiMoon") var urlWeatherApiMoon = ""
-    @AppStorage("ShowWeather") var showWeather = false
-
+    
     @AppStorage("UrlRestCountries") var urlRestCountries = ""
     
     @AppStorage("Url1OpenMeteo") var url1OpenMeteo = ""
     @AppStorage("Url2OpenMeteo") var url2OpenMeteo = ""
-
+    
     @AppStorage("Use30Years") var use30Years = false
-
+    
     
     var body: some View {
         VStack {
             Form {
                 Section(header: Text("Key for OpenCage")) {
                     TextField("Key for OpenCage", text: $keyOpenCage)
-                         .font(.footnote)
+                        .font(.footnote)
                 }
-
+                
                 Section(header: Text("Url for OpenCage")) {
                     TextField("Url for OpenCage", text: $urlOpenCage)
                         .font(.footnote)
                 }
-
+                
                 Section(header: Text("Key for OpenWeather")) {
                     TextField("Key for OpenWeather", text: $keyOpenWeather)
                         .font(.footnote)
                 }
-
+                
                 Section(header: Text("Url for OpenWeather")) {
                     TextField("Url for OpenOpenWeather", text: $urlOpenWeather)
                         .font(.footnote)
                 }
-
+                
                 Section(header: Text("Url for Met.no sun")) {
                     TextField("Url for Met.no", text: $urlMetNo)
                         .font(.footnote)
@@ -64,14 +63,9 @@ struct SettingView: View {
                     TextField("Key for WeatherApi", text: $keyWeatherApi)
                         .font(.footnote)
                 }
-
+                
                 Section(header: Text("Url for WeatherApi")) {
                     TextField("Url for WeatherApi moon", text: $urlWeatherApiMoon)
-                        .font(.footnote)
-                }
-                
-                Section(header: Text("SHOW WEATHER FOR PLACES IN CLOUDKIT")) {
-                    Toggle("Show weather for places in CloudKit", isOn: $showWeather)
                         .font(.footnote)
                 }
                 
@@ -99,6 +93,7 @@ struct SettingView: View {
             .keyboardType(.asciiCapable)
         }
         .navigationTitle("Setting")
+        .scrollIndicators(.hidden)
     }
 }
 
