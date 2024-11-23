@@ -75,9 +75,73 @@ func GetAverageDayWeather(startDate: String,
         /// Henter gjennomsnittsdata
         ///
         if let url {
+            ///
+            /// Chat GPT: how to see data from try await urlSession.data(from: url)
+            ///
             do {
                 let urlSession = URLSession.shared
                 let (jsonData, response) = try await urlSession.data(from: url)
+                ///
+                /// Viser jsonData i klartekst
+                ///
+                let data = String(data: jsonData, encoding: .utf8)
+                print("Data received: \(data!) ")
+                
+                ///
+                /// Lagre json data
+                ///
+                
+                let value: (LocalizedStringKey)
+                let fileName = "qwerty.json"
+                value = saveJSONData(fileName, data!)
+                
+                print("Status = \(value)")
+                
+                /*
+                 Data received: {"latitude":58.594025,"longitude":5.78714,"generationtime_ms":0.0680685043334961,"utc_offset_seconds":3600,"timezone":"Europe/Oslo","timezone_abbreviation":"CET","elevation":51.0,"daily_units":{"time":"iso8601","precipitation_sum":"mm","temperature_2m_min":"°C","temperature_2m_max":"°C"},"daily":{"time":["1991-01-01","1991-01-02","1991-01-03","1991-01-04","1991-01-05","1991-01-06","1991-01-07","1991-01-08","1991-01-09","1991-01-10"],"precipitation_sum":[3.50,40.70,4.80,20.10,19.60,8.10,7.80,8.60,9.60,10.30],"temperature_2m_min":[3.5,4.0,4.1,2.9,3.4,3.0,2.5,2.2,2.1,3.0],"temperature_2m_max":[4.7,6.6,5.3,6.4,6.0,4.9,4.7,3.7,3.9,4.8]}}
+                 711 bytes
+                 Data saved to: file:///var/mobile/Containers/Data/Application/868278D1-E459-4DCC-8599-22C01BA7CAF3/Documents/qwerty.json
+                 Status = LocalizedStringKey(key: "", hasFormatting: false, arguments: [])
+                 */
+                
+                ///
+                /// Lese tilbake json data:
+                ///
+               
+                let value1: (LocalizedStringKey, String?)
+                
+                value1 = loadJSONData(fileName)
+               
+                print("Data read = \(value1.1!)")
+                
+                /*
+                Data received:
+                 {"latitude":57.11775,
+                  "longitude":-2.0974426,
+                  "generationtime_ms":0.07891654968261719,
+                  "utc_offset_seconds":0,
+                  "timezone":"Europe/London",
+                  "timezone_abbreviation":"GMT",
+                  "elevation":24.0,
+                  "daily_units":
+                 {"time":"iso8601","precipitation_sum":"mm","temperature_2m_min":"°C","temperature_2m_max":"°C"},"daily":
+                 {"time":["1991-01-01","1991-01-02","1991-01-03","1991-01-04","1991-01-05","1991-01-06","1991-01-07","1991-01-08","1991-01-09","1991-01-10"],"precipitation_sum":[5.80,0.00,0.00,0.00,6.10,0.70,0.50,0.20,0.30,3.40],"temperature_2m_min":[2.1,3.0,2.6,2.3,3.5,3.4,0.9,0.7,0.9,1.8],"temperature_2m_max":[9.3,9.4,4.5,5.9,5.0,6.3,3.4,2.6,3.4,4.8]}}
+                709 bytes
+                Data saved to: file:///var/mobile/Containers/Data/Application/23DC10C3-1054-4104-813A-07FFADF55CEE/Documents/qwerty.json
+                Status = LocalizedStringKey(key: "", hasFormatting: false, arguments: [])
+                 
+                Data read =
+                 "{\"latitude\":57.11775,\"longitude\":-2.0974426,
+                   \"generationtime_ms\":0.07891654968261719,
+                   \"utc_offset_seconds\":0,
+                   \"timezone\":\"Europe\/London\",
+                   \"timezone_abbreviation\":\"GMT\",
+                   \"elevation\":24.0,
+                   \"daily_units\":{\"time\":\"iso8601\",\"precipitation_sum\":\"mm\",\"temperature_2m_min\":\"°C\",\"temperature_2m_max\":\"°C\"},\"daily\":{\"time\":[\"1991-01-01\",\"1991-01-02\",\"1991-01-03\",\"1991-01-04\",\"1991-01-05\",\"1991-01-06\",\"1991-01-07\",\"1991-01-08\",\"1991-01-09\",\"1991-01-10\"],\"precipitation_sum\":[5.80,0.00,0.00,0.00,6.10,0.70,0.50,0.20,0.30,3.40],\"temperature_2m_min\":[2.1,3.0,2.6,2.3,3.5,3.4,0.9,0.7,0.9,1.8],\"temperature_2m_max\":[9.3,9.4,4.5,5.9,5.0,6.3,3.4,2.6,3.4,4.8]}}"
+                
+                */
+                
+                
                 errorMessage = ServerResponse(error:"\(response)")
                 ///
                 /// Finner statusCode fra response
@@ -114,4 +178,3 @@ func GetAverageDayWeather(startDate: String,
     }
     return (errorMessage, averageDailyDataRecord)
 }
-

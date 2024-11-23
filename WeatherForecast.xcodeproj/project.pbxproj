@@ -472,6 +472,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB38AA5F2CD28A3E00784CFE /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
+		DBE4D5972CF0731100B82B1B /* Json */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Json; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1021,6 +1022,7 @@
 		DBB4CCC8288869E900B5C5C8 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				DBE4D5972CF0731100B82B1B /* Json */,
 				DBFA0FED2B615A420008E358 /* Info.plist */,
 				DBD2B5962A9D0D2C00721184 /* Constant */,
 				DBCE690629DB123D0008E434 /* WeatherForecast.docc */,
@@ -1115,6 +1117,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DB38AA5F2CD28A3E00784CFE /* Script */,
+				DBE4D5972CF0731100B82B1B /* Json */,
 			);
 			name = WeatherForecast;
 			productName = WeatherForecast;
@@ -1573,7 +1576,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -1616,7 +1619,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
