@@ -93,6 +93,13 @@ func GetAverageDayWeather(startDate: String,
                 
                 let value: (LocalizedStringKey)
                 let fileName = "qwerty.json"
+                
+                let fn = "\(lat)" + " " + "\(lon)" + ".json"
+                
+//                deleteFile("qwerty.json")
+                
+                loadFiles()
+                
                 value = saveJSONData(fileName, data!)
                 
                 print("Status = \(value)")
@@ -178,3 +185,43 @@ func GetAverageDayWeather(startDate: String,
     }
     return (errorMessage, averageDailyDataRecord)
 }
+
+func deleteFile(_ fileName: String) {
+    let fileManager = FileManager.default
+    
+    // Get the URL for the Documents directory
+    if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
+        
+        do {
+            // Check if the file exists
+            if fileManager.fileExists(atPath: fileURL.path) {
+                // Delete the file
+                try fileManager.removeItem(at: fileURL)
+                print("File deleted successfully")
+            } else {
+                print("File does not exist")
+            }
+        } catch {
+            print("Error deleting file: \(error.localizedDescription)")
+        }
+    }
+}
+
+func loadFiles() {
+        let fileManager = FileManager.default
+        do {
+            // Get the URL of the document directory
+            let documentsDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            
+            // Get all files in the directory
+            let files = try fileManager.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil, options: [])
+            
+            // Extract the file names
+            let fileNames = files.map { $0.lastPathComponent }
+            
+            print("File(s) in document directory: \(fileNames)")
+        } catch {
+            print("Error loading files: \(error)")
+        }
+    }

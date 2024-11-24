@@ -416,9 +416,12 @@ struct WeatherForecast: View {
                 }
                 (errorMessage, averageYearsPerDayDataRecord) =
                 await GetAverageDayWeather(startDate: startDate,
-                                           endDate: "1991-01-10", // endDateYears,
+                                           endDate: "1991-01-04", // endDateYears,
                                            lat: weatherInfo.latitude ?? 0.00,
                                            lon: weatherInfo.longitude ?? 0.00)
+                
+                print(averageYearsPerDayDataRecord)
+                
                 ///
                 /// Viser eventuelle feilmeldinger
                 ///
