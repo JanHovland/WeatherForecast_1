@@ -70,9 +70,24 @@ func GetAverageDayWeather(option: EnumType,
     /// Feilmelding dersom urlPart1 og / eller urlPart2 ikke har verdi
     ///
     if urlPart1.count > 0, urlPart2.count > 0 {
-        let urlString =
-        urlPart1 + "\(lat)" + "&longitude=" + "\(lon)" + urlPart2 + "&start_date=" + startDate + "&end_date=" + endDate
+        let urlString = urlPart1 + "\(lat)" + "&longitude=" + "\(lon)" + urlPart2 + "&start_date=" + startDate + "&end_date=" + endDate
         let url = URL(string: urlString)
+        
+        let fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + ".json"
+        
+        ///
+        /// Sjekk om fileName finnes
+        ///
+        
+        let value : (LocalizedStringKey, Bool) = fileJSONExist(named: fileName)
+        if value.0 == "", value.1 == true {
+            ///
+            /// filen finnes
+            ///
+            print("File exists")
+        }
+        
+        
         ///
         /// Henter gjennomsnittsdata
         ///

@@ -28,5 +28,24 @@ func deleteJSONFile(named fileName: String) -> LocalizedStringKey {
     return (errorMessage)
 }
 
+func fileJSONExist(named fileName: String) -> (LocalizedStringKey, Bool) {
+    var errorMessage: LocalizedStringKey = ""
+    var exist = false
+    
+    let fileManager = FileManager.default
+    
+    if let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        // Check if file exists before deleting
+        if fileManager.fileExists(atPath: fileURL.path) {
+            exist = true
+        } else {
+            errorMessage = "File does not exist."
+        }
+    }
+    
+    return (errorMessage, exist)
+}
+
 
 
