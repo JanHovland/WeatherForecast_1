@@ -31,10 +31,9 @@ struct ShowFileView: View {
     }
     
     func findFileToDelete(at indexSet: IndexSet) {
-        let fileManager = FileManager.default
         for index in indexSet {
             let fileName = fileNames[index]
-            let value = deleteJSONFile(named: fileName)
+            _ = deleteJSONFile(named: fileName)
          }
     }
 }

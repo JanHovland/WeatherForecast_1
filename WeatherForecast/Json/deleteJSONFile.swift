@@ -14,7 +14,6 @@ func deleteJSONFile(named fileName: String) -> LocalizedStringKey {
         // Get the URL for the Documents directory
         if let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = documentsDirectory.appendingPathComponent(fileName)
-            
             // Check if file exists before deleting
             if fileManager.fileExists(atPath: fileURL.path) {
                 try fileManager.removeItem(at: fileURL)
