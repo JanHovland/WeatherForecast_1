@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 func GetAverageDayWeather(option: EnumType,
+                          placeName: String,
                           startDate: String,
                           endDate: String,
                           lat: Double,
@@ -49,32 +50,6 @@ func GetAverageDayWeather(option: EnumType,
                                                         precipitationSum: [0.00],
                                                         temperature2MMin: [0.00],
                                                         temperature2MMax: [0.00])
-    
-    ///
-    /// GetAverageDayWeather for å hente de siste 30 dagene == option: days     ** ???????????????????? to forskjellige funksjoner or days og years **
-    ///     opsjon 1 =  years
-    ///     opsjon 2 =  days
-    ///
-    ///     ved years: oppdate filen
-    ///     ved days: ** ikke oppdatere filen **
-    ///     
-         
-    ///
-    /// Sjekk on filen: "\(lat)" + " " + "\(lon)" + ".json" finnes
-    ///
-    
-    ///
-    /// Hivis Nei. les fra url
-    /// og lagre i  \(lat)" + " " + "\(lon)" + ".json">
-    ///
-    
-    
-    ///
-    /// Hvis Ja: Les fra < \(lat)" + " " + "\(lon)" + ".json">
-    ///
-    
-    
-    
     ///
     /// Finner urlPart1 fra Settings()
     ///
@@ -102,9 +77,6 @@ func GetAverageDayWeather(option: EnumType,
         /// Henter gjennomsnittsdata
         ///
         if let url {
-            ///
-            /// Chat GPT: how to see data from try await urlSession.data(from: url)
-            ///
             do {
                 let urlSession = URLSession.shared
                 let (jsonData, response) = try await urlSession.data(from: url)
@@ -119,10 +91,8 @@ func GetAverageDayWeather(option: EnumType,
                 ///
                 
                 if option == .years {
-                    
                     let value: (LocalizedStringKey)
-//                    let fileName = "qwerty.json"
-                    let fileName = "\(lat)" + " " + "\(lon)" + ".json"
+                    let fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + ".json"
                     
                     //                let fn = "\(lat)" + " " + "\(lon)" + ".json"
                     

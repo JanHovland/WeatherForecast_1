@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-func FindDataLast30Days(lat: Double?,
+func FindDataLast30Days(placeName: String,
+                        lat: Double?,
                         lon: Double?) async -> (LocalizedStringKey,
                                                 String,
                                                 String,
@@ -26,6 +27,7 @@ func FindDataLast30Days(lat: Double?,
     let dayFrom = FormatDateToString(date: fromDate, format: "yyyy-MM-dd", offsetSec: 0)
     
     (errorMessage, average30DaysDataRecord) = await GetAverageDayWeather(option: .days,
+                                                                         placeName: placeName,
                                                                          startDate: dayFrom,
                                                                          endDate: dayTo,
                                                                          lat: lat ?? 0.00,

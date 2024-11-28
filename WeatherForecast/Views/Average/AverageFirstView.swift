@@ -206,7 +206,8 @@ struct AverageFirstView: View {
                 (errorMessage,
                  fromDate,
                  toDate,
-                 average30DaysDataRecord) = await FindDataLast30Days(lat: weatherInfo.latitude ?? 0.00,
+                 average30DaysDataRecord) = await FindDataLast30Days(placeName: weatherInfo.placeName,
+                                                                     lat: weatherInfo.latitude ?? 0.00,
                                                                      lon: weatherInfo.longitude ?? 0.00)
                 if errorMessage == "" {
                     precificationLast30Days = 0.00
