@@ -134,6 +134,9 @@ struct WeatherForecastMain: View {
                     .frame(height: UIDevice.isIpad ? 275 : 230)
                 }
                 Section("Diverse") {
+                    NavigationLink(destination: ShowFileView()) {
+                        Label("Show files in Document Directory", systemImage: "filemenu.and.cursorarrow")
+                    }
                     NavigationLink(destination: SettingView()) {
                         Label("Settings", systemImage: "gear")
                     }

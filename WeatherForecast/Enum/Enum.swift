@@ -45,4 +45,6 @@ enum EnumType {
     case firstEnum
     case secondEnum
     case thirdEnum
+    case years
+    case days
 }

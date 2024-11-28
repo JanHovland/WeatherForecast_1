@@ -472,6 +472,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB38AA5F2CD28A3E00784CFE /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
+		DB4703502CF71228005B4F71 /* DocumentFiles */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DocumentFiles; sourceTree = "<group>"; };
 		DBE4D5972CF0731100B82B1B /* Json */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Json; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -513,6 +514,7 @@
 		DB13AD3F28E345D200C910E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB4703502CF71228005B4F71 /* DocumentFiles */,
 				DBB0E7B5290C2B9C0015F556 /* AirPressure */,
 				DB66C19B2AF641EF00C2722E /* AirQuality */,
 				DB679FDE2B25BAF8008C7330 /* AppsFor */,
@@ -1022,22 +1024,22 @@
 		DBB4CCC8288869E900B5C5C8 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
-				DBE4D5972CF0731100B82B1B /* Json */,
-				DBFA0FED2B615A420008E358 /* Info.plist */,
-				DBD2B5962A9D0D2C00721184 /* Constant */,
-				DBCE690629DB123D0008E434 /* WeatherForecast.docc */,
-				DB82F5B32971CDF200818841 /* CloudKit */,
-				DB5C0C2C29151B4E00141BDC /* Enum */,
+				DBB4CCCD288869EA00B5C5C8 /* Assets.xcassets */,
 				DB69689B290E96FB00936C0E /* Class */,
+				DB82F5B32971CDF200818841 /* CloudKit */,
+				DBD2B5962A9D0D2C00721184 /* Constant */,
+				DB5C0C2C29151B4E00141BDC /* Enum */,
 				DB51163528E43B5300DEB1BF /* Geo */,
+				DBFA0FED2B615A420008E358 /* Info.plist */,
+				DBE4D5972CF0731100B82B1B /* Json */,
 				DB51163828E43BBC00DEB1BF /* Model */,
+				DBB4CCD0288869EA00B5C5C8 /* Preview Content */,
 				DB41EB7B2978060400167108 /* Service */,
 				DBC9697A290058DB009C089E /* ToDo */,
 				DB13AD4028E346B400C910E3 /* Utilities */,
 				DB13AD3F28E345D200C910E3 /* Views */,
-				DBB4CCCD288869EA00B5C5C8 /* Assets.xcassets */,
+				DBCE690629DB123D0008E434 /* WeatherForecast.docc */,
 				DBB4CCCF288869EA00B5C5C8 /* WeatherForecast.entitlements */,
-				DBB4CCD0288869EA00B5C5C8 /* Preview Content */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -1117,6 +1119,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DB38AA5F2CD28A3E00784CFE /* Script */,
+				DB4703502CF71228005B4F71 /* DocumentFiles */,
 				DBE4D5972CF0731100B82B1B /* Json */,
 			);
 			name = WeatherForecast;

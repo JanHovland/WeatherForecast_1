@@ -25,7 +25,8 @@ func FindDataLast30Days(lat: Double?,
     let fromDate = yesterDay.adding(days: -29)
     let dayFrom = FormatDateToString(date: fromDate, format: "yyyy-MM-dd", offsetSec: 0)
     
-    (errorMessage, average30DaysDataRecord) = await GetAverageDayWeather(startDate: dayFrom,
+    (errorMessage, average30DaysDataRecord) = await GetAverageDayWeather(option: .days,
+                                                                         startDate: dayFrom,
                                                                          endDate: dayTo,
                                                                          lat: lat ?? 0.00,
                                                                          lon: lon ?? 0.00)
