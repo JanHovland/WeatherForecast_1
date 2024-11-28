@@ -472,7 +472,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB38AA5F2CD28A3E00784CFE /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
-		DB4703502CF71228005B4F71 /* DocumentFiles */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DocumentFiles; sourceTree = "<group>"; };
+		DB4703502CF71228005B4F71 /* DocumentFile */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DocumentFile; sourceTree = "<group>"; };
 		DBE4D5972CF0731100B82B1B /* Json */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Json; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -514,7 +514,7 @@
 		DB13AD3F28E345D200C910E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB4703502CF71228005B4F71 /* DocumentFiles */,
+				DB4703502CF71228005B4F71 /* DocumentFile */,
 				DBB0E7B5290C2B9C0015F556 /* AirPressure */,
 				DB66C19B2AF641EF00C2722E /* AirQuality */,
 				DB679FDE2B25BAF8008C7330 /* AppsFor */,
@@ -1119,7 +1119,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DB38AA5F2CD28A3E00784CFE /* Script */,
-				DB4703502CF71228005B4F71 /* DocumentFiles */,
+				DB4703502CF71228005B4F71 /* DocumentFile */,
 				DBE4D5972CF0731100B82B1B /* Json */,
 			);
 			name = WeatherForecast;
