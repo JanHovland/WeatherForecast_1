@@ -1992,10 +1992,13 @@
 "Cannot find data for the Air Quality." = "Kan ikke finne data for luftkvaliteten.";
 
 /* No comment provided by engineer. */
-"Files in Document Directory" = "Filer i dokument katalogen";
+"Files in Document Directory" = "Filer i Dokument katalogen";
 
 /* No comment provided by engineer. */
-"Show files in Document Directory" = "Vis filene i dokument katalogen";
+"Show files in Document Directory" = "Vis filene i Dokument katalogen";
 
 /* No comment provided by engineer. */
-"File does not exist." = "Filen finnes ikke";
+"File does not exist." = "Filen finnes ikke i Dokument katalogen.";
+
+/* No comment provided by engineer. */
+"No files in Document Directory" = "Dokument katalogen er tom.";

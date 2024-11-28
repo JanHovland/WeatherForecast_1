@@ -13,6 +13,11 @@ struct ShowFileView: View {
     
     var body: some View {
         Text("Files in Document Directory")
+        if fileNames.count == 0 {
+            Text("No files in Document Directory")
+                .foregroundStyle(.red)
+                .padding(.vertical, 60)
+        }
         List {
             ForEach (fileNames, id: \.self) { fileName in
                 Text(fileName)
