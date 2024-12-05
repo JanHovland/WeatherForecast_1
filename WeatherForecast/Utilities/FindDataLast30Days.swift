@@ -28,7 +28,7 @@ func FindDataLast30Days(placeName: String,
     
     (errorMessage, average30DaysDataRecord) = await GetAverageDayWeather(option: .days,
                                                                          placeName: placeName,
-                                                                         startYear: "",
+                                                                         years: 0,
                                                                          startDate: dayFrom,
                                                                          endDate: dayTo,
                                                                          lat: lat ?? 0.00,

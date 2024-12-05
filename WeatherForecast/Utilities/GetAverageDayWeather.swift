@@ -10,7 +10,7 @@ import SwiftUI
 
 func GetAverageDayWeather(option: EnumType,
                           placeName: String,
-                          startYear: String,
+                          years: Int,
                           startDate: String,
                           endDate: String,
                           lat: Double,
@@ -58,7 +58,7 @@ func GetAverageDayWeather(option: EnumType,
     ///
     fileDoesExist = false
     if option == .years {
-        fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + " " + startYear + " " + ".json"
+        fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + " " + "\(years)" + ".json"
         ///
         /// Sjekker om fileName finnes
         ///

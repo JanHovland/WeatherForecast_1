@@ -89,6 +89,8 @@ struct WeatherForecast: View {
     @State private var settingsMissing: Bool = false
     @State private var someSnow: Bool = false
     
+    @State private var years: Int = 0
+    
     let noPlaceName: String = String(localized: "No placeName")
     let noCountryName: String = String(localized: "No countryName")
     
@@ -410,14 +412,16 @@ struct WeatherForecast: View {
                 if use30Years == false {
                     startDate = startDate10Years
                     weatherInfo.startYear = "2011"
+                    years = 10
                 } else {
                     startDate = startDate30Years
                     weatherInfo.startYear = "1991"
+                    years = 30
                 }
                 (errorMessage, averageYearsPerDayDataRecord) =
                 await GetAverageDayWeather(option: .years,
                                            placeName: weatherInfo.placeName,
-                                           startYear: weatherInfo.startYear,
+                                           years: years,
                                            startDate: startDate,
                                            endDate: endDateYears,
                                            lat: weatherInfo.latitude ?? 0.00,
