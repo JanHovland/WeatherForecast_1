@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-func GetAverageDayWeather(startDate: String,
+func GetAverageDayWeather(option: EnumType,
+                          placeName: String,
+                          startDate: String,
                           endDate: String,
                           lat: Double,
                           lon: Double) async -> (LocalizedStringKey,
@@ -44,10 +46,26 @@ func GetAverageDayWeather(startDate: String,
     
     var errorMessage: LocalizedStringKey = ""
     var httpStatus: Int = 0
+    var fileName: String = ""
+    var fileDoesExist: Bool = false
     var averageDailyDataRecord = AverageDailyDataRecord(time: [""],
                                                         precipitationSum: [0.00],
                                                         temperature2MMin: [0.00],
                                                         temperature2MMax: [0.00])
+    ///
+    /// finner fileName
+    ///
+    fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + ".json"
+    ///
+    /// Sjekker om fileName finnes
+    ///
+    let value : (LocalizedStringKey, Bool) = fileExist(named: fileName)
+    if value.0 == "", value.1 == true {
+        ///
+        /// filen finnes
+        ///
+        fileDoesExist = value.1
+    }
     ///
     /// Finner urlPart1 fra Settings()
     ///
@@ -74,41 +92,59 @@ func GetAverageDayWeather(startDate: String,
         ///
         /// Henter gjennomsnittsdata
         ///
-        if let url {
-            do {
-                let urlSession = URLSession.shared
-                let (jsonData, response) = try await urlSession.data(from: url)
-                errorMessage = ServerResponse(error:"\(response)")
-                ///
-                /// Finner statusCode fra response
-                ///
-                let res = response as? HTTPURLResponse
-                httpStatus = res!.statusCode
-                ///
-                /// Sjekker httpStatus
-                ///
-                if httpStatus == 200 {
-                    if let averageData = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
-                        ///
-                        /// Oppdatering av averageDailyDataRecord
-                        ///
-                        averageDailyDataRecord.time = (averageData.daily.time)
-                        averageDailyDataRecord.precipitationSum = (averageData.daily.precipitationSum)
-                        averageDailyDataRecord.temperature2MMin = (averageData.daily.temperature2MMin)
-                        averageDailyDataRecord.temperature2MMax = (averageData.daily.temperature2MMax)
-                        errorMessage = ""
-                    } else {
-                        let msg = String(localized: "Can not find any average data")
-                        errorMessage = LocalizedStringKey(msg)
-                    }
-                } else {
+        if option == .years && fileDoesExist == true {
+            
+            let average = loadAverageData(fileName)
+            print("1st = \(average! as Any)")
+            averageDailyDataRecord.time = average!.time
+            averageDailyDataRecord.precipitationSum = average!.precipitationSum
+            averageDailyDataRecord.temperature2MMin = average!.temperature2MMin
+            averageDailyDataRecord.temperature2MMax = average!.temperature2MMax
+            print("2nd = \(averageDailyDataRecord as Any)")
+            
+        } else if option == .days || option == .years && fileDoesExist == false {
+            if let url {
+                do {
+                    let urlSession = URLSession.shared
+                    let (jsonData, response) = try await urlSession.data(from: url)
                     errorMessage = ServerResponse(error:"\(response)")
+                    ///
+                    /// Finner statusCode fra response
+                    ///
+                    let res = response as? HTTPURLResponse
+                    httpStatus = res!.statusCode
+                    ///
+                    /// Sjekker httpStatus
+                    ///
+                    if httpStatus == 200 {
+                        if let averageData = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
+                            ///
+                            /// Oppdatering av averageDailyDataRecord
+                            ///
+                            averageDailyDataRecord.time = (averageData.daily.time)
+                            averageDailyDataRecord.precipitationSum = (averageData.daily.precipitationSum)
+                            averageDailyDataRecord.temperature2MMin = (averageData.daily.temperature2MMin)
+                            averageDailyDataRecord.temperature2MMax = (averageData.daily.temperature2MMax)
+                            errorMessage = ""
+                            ///
+                            /// Lagrer data i Document directory
+                            ///
+                            if option == .years && fileDoesExist == false {
+                                saveAverageData(fileName, data: averageDailyDataRecord)
+                            }
+                        } else {
+                            let msg = String(localized: "Can not find any average data")
+                            errorMessage = LocalizedStringKey(msg)
+                        }
+                    } else {
+                        errorMessage = ServerResponse(error:"\(response)")
+                    }
+                } catch {
+                    let response = CatchResponse(response: "\(error)",
+                                                 searchFrom: "Code=",
+                                                 searchTo: "UserInfo")
+                    errorMessage = "\(response)"
                 }
-            } catch {
-                let response = CatchResponse(response: "\(error)",
-                                             searchFrom: "Code=",
-                                             searchTo: "UserInfo")
-                errorMessage = "\(response)"
             }
         }
     }
