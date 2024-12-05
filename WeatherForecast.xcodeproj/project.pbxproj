@@ -473,7 +473,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB38AA5F2CD28A3E00784CFE /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
 		DB4703502CF71228005B4F71 /* DocumentFile */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DocumentFile; sourceTree = "<group>"; };
-		DBE4D5972CF0731100B82B1B /* JsonData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = JsonData; sourceTree = "<group>"; };
+		DBE4D5972CF0731100B82B1B /* Document Directory */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Document Directory"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1031,7 +1031,7 @@
 				DB5C0C2C29151B4E00141BDC /* Enum */,
 				DB51163528E43B5300DEB1BF /* Geo */,
 				DBFA0FED2B615A420008E358 /* Info.plist */,
-				DBE4D5972CF0731100B82B1B /* JsonData */,
+				DBE4D5972CF0731100B82B1B /* Document Directory */,
 				DB51163828E43BBC00DEB1BF /* Model */,
 				DBB4CCD0288869EA00B5C5C8 /* Preview Content */,
 				DB41EB7B2978060400167108 /* Service */,
@@ -1120,7 +1120,7 @@
 			fileSystemSynchronizedGroups = (
 				DB38AA5F2CD28A3E00784CFE /* Script */,
 				DB4703502CF71228005B4F71 /* DocumentFile */,
-				DBE4D5972CF0731100B82B1B /* JsonData */,
+				DBE4D5972CF0731100B82B1B /* Document Directory */,
 			);
 			name = WeatherForecast;
 			productName = WeatherForecast;

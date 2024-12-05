@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AverageDailyDataRecord {
+struct AverageDailyDataRecord: Codable {
     var time: [String]
     var precipitationSum: [Double?]
     var temperature2MMin: [Double?]

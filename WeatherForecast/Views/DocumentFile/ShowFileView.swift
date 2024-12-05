@@ -27,7 +27,7 @@ struct ShowFileView: View {
         .onAppear {
             var value: (LocalizedStringKey, [String])
             
-            value = loadFiles()
+            value = fileLoadFilenames()
             
             if value.0 == "" {
                 fileNames = value.1
@@ -38,7 +38,7 @@ struct ShowFileView: View {
     func findFileToDelete(at indexSet: IndexSet) {
         for index in indexSet {
             let fileName = fileNames[index]
-            _ = deleteJSONFile(named: fileName)
+            fileDelete(fileName)
          }
     }
 }
