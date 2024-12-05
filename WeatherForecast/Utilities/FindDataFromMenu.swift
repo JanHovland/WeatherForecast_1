@@ -39,11 +39,11 @@ func FindDataFromMenu(info: String,
     var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     var nData = NewPrecipitation(type: "", hour: 0, value: 0.00)
     var newPrecipitation : [NewPrecipitation] = []
-    var hailData : [Data] = []
-    var mixedData : [Data] = []
-    var rainData : [Data] = []
-    var sleetData : [Data] = []
-    var snowData : [Data] = []
+    var hailData : [DataInfo] = []
+    var mixedData : [DataInfo] = []
+    var rainData : [DataInfo] = []
+    var sleetData : [DataInfo] = []
+    var snowData : [DataInfo] = []
     var windSpeedData : [DataWind] = []
     var windGustData : [DataWind] = []
 
@@ -438,77 +438,77 @@ func FindDataFromMenu(info: String,
         
     case .precipitation :
         var i: Int = 0
-        var data = Data()
+        var dataInfo = DataInfo()
         hourForecast!.forEach  {
             if $0.date >= value.0 &&
                 $0.date <  value.1 {
                 array.append($0.precipitationAmount.value)
-                data.index = i
+                dataInfo.index = i
                 ///
                 /// Sjekker om det er noe nedbør:
                 ///
                 if $0.precipitation == .none {
-                    data.type = String(localized: "None")
-                    snowArray.append(data.amount)
-                    data.amount = 0.00
-                    hailData.append(data)
-                    mixedData.append(data)
-                    rainData.append(data)
-                    sleetData.append(data)
-                    snowData.append(data)
+                    dataInfo.type = String(localized: "None")
+                    snowArray.append(dataInfo.amount)
+                    dataInfo.amount = 0.00
+                    hailData.append(dataInfo)
+                    mixedData.append(dataInfo)
+                    rainData.append(dataInfo)
+                    sleetData.append(dataInfo)
+                    snowData.append(dataInfo)
                 } else {
                     if $0.precipitation == .snow {
                         ///
                         /// 1 millimeter nedbør = 1 centimeter snø .
                         ///
-                        data.amount = $0.precipitationAmount.value
-                        data.type = String(localized: "Snow")
-                        snowArray.append(data.amount)
-                        data.amount = 0.00
-                        hailData.append(data)
-                        mixedData.append(data)
-                        rainData.append(data)
-                        sleetData.append(data)
+                        dataInfo.amount = $0.precipitationAmount.value
+                        dataInfo.type = String(localized: "Snow")
+                        snowArray.append(dataInfo.amount)
+                        dataInfo.amount = 0.00
+                        hailData.append(dataInfo)
+                        mixedData.append(dataInfo)
+                        rainData.append(dataInfo)
+                        sleetData.append(dataInfo)
                     } else if $0.precipitation == .hail {
-                        data.amount = $0.precipitationAmount.value
-                        data.type = String(localized: "Hail")
-                        hailData.append(data)
-                        data.index = i
-                        data.amount = 0.00
-                        mixedData.append(data)
-                        rainData.append(data)
-                        sleetData.append(data)
-                        snowData.append(data)
+                        dataInfo.amount = $0.precipitationAmount.value
+                        dataInfo.type = String(localized: "Hail")
+                        hailData.append(dataInfo)
+                        dataInfo.index = i
+                        dataInfo.amount = 0.00
+                        mixedData.append(dataInfo)
+                        rainData.append(dataInfo)
+                        sleetData.append(dataInfo)
+                        snowData.append(dataInfo)
                     } else if $0.precipitation == .mixed {
-                        data.amount = $0.precipitationAmount.value
-                        data.type = String(localized: "Mixed")
-                        mixedData.append(data)
-                        data.index = i
-                        data.amount = 0.00
-                        hailData.append(data)
-                        rainData.append(data)
-                        sleetData.append(data)
-                        snowData.append(data)
+                        dataInfo.amount = $0.precipitationAmount.value
+                        dataInfo.type = String(localized: "Mixed")
+                        mixedData.append(dataInfo)
+                        dataInfo.index = i
+                        dataInfo.amount = 0.00
+                        hailData.append(dataInfo)
+                        rainData.append(dataInfo)
+                        sleetData.append(dataInfo)
+                        snowData.append(dataInfo)
                     } else if $0.precipitation == .rain {
-                        data.amount = $0.precipitationAmount.value
-                        data.type = String(localized: "Rain")
-                        rainData.append(data)
-                        data.index = i
-                        data.amount = 0.00
-                        hailData.append(data)
-                        mixedData.append(data)
-                        sleetData.append(data)
-                        snowData.append(data)
+                        dataInfo.amount = $0.precipitationAmount.value
+                        dataInfo.type = String(localized: "Rain")
+                        rainData.append(dataInfo)
+                        dataInfo.index = i
+                        dataInfo.amount = 0.00
+                        hailData.append(dataInfo)
+                        mixedData.append(dataInfo)
+                        sleetData.append(dataInfo)
+                        snowData.append(dataInfo)
                     } else if $0.precipitation == .sleet {
-                        data.amount = $0.precipitationAmount.value
-                        sleetData.append(data)
-                        data.type = String(localized: "Sleet")
-                        data.index = i
-                        data.amount = 0.00
-                        hailData.append(data)
-                        mixedData.append(data)
-                        rainData.append(data)
-                        snowData.append(data)
+                        dataInfo.amount = $0.precipitationAmount.value
+                        sleetData.append(dataInfo)
+                        dataInfo.type = String(localized: "Sleet")
+                        dataInfo.index = i
+                        dataInfo.amount = 0.00
+                        hailData.append(dataInfo)
+                        mixedData.append(dataInfo)
+                        rainData.append(dataInfo)
+                        snowData.append(dataInfo)
                     }
                 }
                 if $0.precipitationAmount.value > 0.00 {

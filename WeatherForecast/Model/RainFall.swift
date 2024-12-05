@@ -9,10 +9,10 @@ import Foundation
 
 struct RainFall {
     var type : String = ""
-    var data : [Data] = [] 
+    var data : [DataInfo] = [] 
 }
 
-struct Data {
+struct DataInfo {
     var type: String = ""
     var index: Int = 0
     var amount : Double = 0.00

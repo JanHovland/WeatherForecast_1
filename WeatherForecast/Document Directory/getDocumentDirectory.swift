@@ -8,9 +8,6 @@
 import Foundation
 
 func getDocumentsDirectory() -> URL {
-    ///
-    /// Get the URL to the app's Documents directory
-    ///
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    return paths[0]
+    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 }
+
