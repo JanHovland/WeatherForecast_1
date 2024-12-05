@@ -10,6 +10,7 @@ import SwiftUI
 
 func GetAverageDayWeather(option: EnumType,
                           placeName: String,
+                          startYear: String,
                           startDate: String,
                           endDate: String,
                           lat: Double,
@@ -55,16 +56,19 @@ func GetAverageDayWeather(option: EnumType,
     ///
     /// finner fileName
     ///
-    fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + ".json"
-    ///
-    /// Sjekker om fileName finnes
-    ///
-    let value : (LocalizedStringKey, Bool) = fileExist(named: fileName)
-    if value.0 == "", value.1 == true {
+    fileDoesExist = false
+    if option == .years {
+        fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + " " + startYear + " " + ".json"
         ///
-        /// filen finnes
+        /// Sjekker om fileName finnes
         ///
-        fileDoesExist = value.1
+        let value : (LocalizedStringKey, Bool) = fileExist(named: fileName)
+        if value.0 == "", value.1 == true {
+            ///
+            /// filen finnes
+            ///
+            fileDoesExist = value.1
+        }
     }
     ///
     /// Finner urlPart1 fra Settings()
@@ -93,15 +97,11 @@ func GetAverageDayWeather(option: EnumType,
         /// Henter gjennomsnittsdata
         ///
         if option == .years && fileDoesExist == true {
-            
             let average = loadAverageData(fileName)
-            print("1st = \(average! as Any)")
             averageDailyDataRecord.time = average!.time
             averageDailyDataRecord.precipitationSum = average!.precipitationSum
             averageDailyDataRecord.temperature2MMin = average!.temperature2MMin
             averageDailyDataRecord.temperature2MMax = average!.temperature2MMax
-            print("2nd = \(averageDailyDataRecord as Any)")
-            
         } else if option == .days || option == .years && fileDoesExist == false {
             if let url {
                 do {
