@@ -25,5 +25,5 @@ func fileLoadFilenames() -> (LocalizedStringKey, [String]) {
     } catch {
         errorMessage = "\(error.localizedDescription)"
     }
-    return (errorMessage, fileNames)
+    return (errorMessage, fileNames.sorted())
 }
