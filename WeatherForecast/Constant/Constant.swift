@@ -92,3 +92,5 @@ let monthName: [String] = [String(localized: "Jan"),
                          ]
  
 let showMessageOnlyForAFewSeconds = String(localized: "\n\nPlease note that this alert will only show for a few seconds and then the App will automatically shut down.")
+
+let yearNumbers = String(localized: "Years")

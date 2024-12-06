@@ -58,7 +58,7 @@ func GetAverageDayWeather(option: EnumType,
     ///
     fileDoesExist = false
     if option == .years {
-        fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + " " + "\(years)" + ".json"
+        fileName = placeName + " " + "\(lat)" + " " + "\(lon)" + " " + "\(years)" + " " + yearNumbers + ".json"
         ///
         /// Sjekker om fileName finnes
         ///
@@ -97,6 +97,9 @@ func GetAverageDayWeather(option: EnumType,
         /// Henter gjennomsnittsdata
         ///
         if option == .years && fileDoesExist == true {
+            ///
+            /// Lagrer averageDailyDataRecord i **ileName**
+            ///
             let average = loadAverageData(fileName)
             averageDailyDataRecord.time = average!.time
             averageDailyDataRecord.precipitationSum = average!.precipitationSum

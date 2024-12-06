@@ -2003,5 +2003,8 @@
 /* No comment provided by engineer. */
 "No files in Document Directory" = "Dokument katalogen er tom.";
 
-* No comment provided by engineer. */
+/* No comment provided by engineer. */
 "File does not exist." = "Filen finnes ikke.";
+
+/* No comment provided by engineer. */
+"Years" = "år";
