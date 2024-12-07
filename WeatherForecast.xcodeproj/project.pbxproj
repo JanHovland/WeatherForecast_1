@@ -122,6 +122,7 @@
 		DB6B95DA2BBF21CF00CAF5F3 /* AverageHourly24HoursDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6B95D92BBF21CF00CAF5F3 /* AverageHourly24HoursDataRecord.swift */; };
 		DB6DE822297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */; };
 		DB6DE824297D3017005BCCF9 /* ConnectToInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6DE823297D3017005BCCF9 /* ConnectToInternet.swift */; };
+		DB6DF3CD2D04408A0029EF3C /* ShowFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6DF3CC2D04408A0029EF3C /* ShowFileView.swift */; };
 		DB6E420D28F9CA8500936EB8 /* TranslateWeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6E420C28F9CA8500936EB8 /* TranslateWeatherCondition.swift */; };
 		DB7534402BDA2DE8005907D3 /* AverageDailyYearData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75343F2BDA2DE8005907D3 /* AverageDailyYearData.swift */; };
 		DB75926D2ADAD6C300B772A9 /* ValueAtPositionChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */; };
@@ -352,6 +353,7 @@
 		DB6B95D92BBF21CF00CAF5F3 /* AverageHourly24HoursDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageHourly24HoursDataRecord.swift; sourceTree = "<group>"; };
 		DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastViewModifier.swift; sourceTree = "<group>"; };
 		DB6DE823297D3017005BCCF9 /* ConnectToInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToInternet.swift; sourceTree = "<group>"; };
+		DB6DF3CC2D04408A0029EF3C /* ShowFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFileView.swift; sourceTree = "<group>"; };
 		DB6E420C28F9CA8500936EB8 /* TranslateWeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateWeatherCondition.swift; sourceTree = "<group>"; };
 		DB75343F2BDA2DE8005907D3 /* AverageDailyYearData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageDailyYearData.swift; sourceTree = "<group>"; };
 		DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueAtPositionChart.swift; sourceTree = "<group>"; };
@@ -472,7 +474,6 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB38AA5F2CD28A3E00784CFE /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
-		DB4703502CF71228005B4F71 /* DocumentFile */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DocumentFile; sourceTree = "<group>"; };
 		DBE4D5972CF0731100B82B1B /* Document Directory */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Document Directory"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -514,7 +515,6 @@
 		DB13AD3F28E345D200C910E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB4703502CF71228005B4F71 /* DocumentFile */,
 				DBB0E7B5290C2B9C0015F556 /* AirPressure */,
 				DB66C19B2AF641EF00C2722E /* AirQuality */,
 				DB679FDE2B25BAF8008C7330 /* AppsFor */,
@@ -533,6 +533,7 @@
 				DB66C1A42AF65B1B00C2722E /* Moon */,
 				DB6400BD29098E1E0013C3B7 /* Precipitation */,
 				DBBDDAD429CB0A7500A3281E /* Settings */,
+				DB6DF3CC2D04408A0029EF3C /* ShowFileView.swift */,
 				DB554E5B2B7A9619009A25F5 /* Size */,
 				DBB0B8882B72283A00069145 /* SnowWarning */,
 				DB8A7EFD2906B9A1002DFD73 /* Sun */,
@@ -1119,7 +1120,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				DB38AA5F2CD28A3E00784CFE /* Script */,
-				DB4703502CF71228005B4F71 /* DocumentFile */,
 				DBE4D5972CF0731100B82B1B /* Document Directory */,
 			);
 			name = WeatherForecast;
@@ -1269,6 +1269,7 @@
 				DBC475D12B19F0E8006ACDCB /* ProgressViewStyleModifier.swift in Sources */,
 				DB17F6AA295DF57100FC2A0B /* DayDetailWeatherDataVisibility.swift in Sources */,
 				DB5C0C5C2917CF9700141BDC /* UvIndexCurrentDescription.swift in Sources */,
+				DB6DF3CD2D04408A0029EF3C /* ShowFileView.swift in Sources */,
 				DBFEFF8B2BAF3C5C0003C105 /* FindDataLast30Days.swift in Sources */,
 				DB9299E329C4CBE2002BA87A /* TranslateCountry.swift in Sources */,
 				DB17F6A0295DF11800FC2A0B /* DayDetailWeatherDataUvIndex.swift in Sources */,
