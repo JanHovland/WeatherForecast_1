@@ -21,6 +21,7 @@ struct ShowFileView: View {
         List {
             ForEach (fileNames, id: \.self) { fileName in
                 Text(fileName)
+                    .font(UIDevice.isIpad ? .system(.body) : .system(.footnote))
             }
             .onDelete(perform: findFileToDelete)
         }
